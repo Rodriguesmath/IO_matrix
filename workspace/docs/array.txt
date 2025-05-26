@@ -1,0 +1,22 @@
+entrada_teclado = [1,1,1,1],
+saida_conf_teclado = [1,1,1,1]
+
+
+if entrada[0] = 0 saida[0] = D
+entrada[0] saida[1] = C
+entrada[0] saida[2] = B
+entrada[0] saida[3] = A
+entrada[1] saida[0] = #
+entrada[1] saida[1] = 9
+entrada[1] saida[2] = 6
+entrada[1] saida[3] = 3
+entrada[2] saida[0] = 0
+entrada[2] saida[1] = 8
+entrada[2] saida[2] = 5
+entrada[2] saida[3] = 2
+entrada[3] saida[0] = *
+entrada[3] saida[1] = 7
+entrada[3] saida[2] = 4
+entrada[3] saida[3] = 1
+
+
