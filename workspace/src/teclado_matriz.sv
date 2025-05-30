@@ -42,11 +42,12 @@ module teclado_matriz (
 		D         = 4'hD  
 	} BCD_t;
 
-	logic [3:0] array [3:0];
+    
 
 	state_t current_state, next_state;
 	logic [8:0] Tp;
 	int index;
+	localparam logic [3:0] array [3:0] = '{W, X, Y, Z};
 
 
 	always_ff @(posedge clk or posedge rst) begin:state_block
@@ -77,13 +78,14 @@ module teclado_matriz (
 		if (rst) begin
 			next_state <= INICIAL;
 			index <= 0;
-			saida_conf_teclado <= array[index];
+			saida_conf_teclado <= array[0];
+            key_valid <= 0;
 		end else case (current_state)
 
 			INICIAL: begin
 				index <= index + 1;
 				if (index > 3) begin
-					index <= 0; // Reset index if it exceeds the array size
+					index <= 0; 
 				end
 				saida_conf_teclado <= array[index];
 				if (entrada_teclado != HIGH) begin
@@ -109,7 +111,7 @@ module teclado_matriz (
 
 				saida_conf_teclado <= array[index];
 
-				case (saida_conf_teclado)
+				case (saida_conf_teclado)	
 					W: begin
 						if (entrada_teclado == W) begin
 							bcd_out <= um;
