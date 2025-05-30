@@ -88,6 +88,7 @@ module teclado_matriz (
 					index <= 0; 
 				end
 				saida_conf_teclado <= array[index];
+
 				if (entrada_teclado != HIGH) begin
 					next_state <= DB;
 				end else begin
@@ -109,116 +110,124 @@ module teclado_matriz (
 
 			PRESS_STATE: begin
 
-				saida_conf_teclado <= array[index];
-
 				case (saida_conf_teclado)	
 					W: begin
-						if (entrada_teclado == W) begin
-							bcd_out <= um;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == X) begin
-							bcd_out <= dois;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == Y) begin
-							bcd_out <= tres;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == Z) begin
-							bcd_out <= A;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else begin
-							bcd_out <= 0;
-							key_valid <= 0;
-							next_state <= INICIAL;
-						end
+						case(entrada_teclado)
+							W: begin
+								bcd_out <= um;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							X: begin
+								bcd_out <= dois;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							Y: begin
+								bcd_out <= tres;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							Z: begin
+								bcd_out <= A;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							default: begin
+								bcd_out <= 0;
+								key_valid <= 0;
+								next_state <= INICIAL;
+							end
+						endcase	
 					end
 					X: begin
-						if (entrada_teclado == W) begin
-							bcd_out <= quatro;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == X) begin
-							bcd_out <= cinco;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == Y) begin
-							bcd_out <= seis;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == Z) begin
-							bcd_out <= B;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else begin
-							bcd_out <= 0;
-							key_valid <= 0;
-							next_state <= INICIAL;
-						end
+						case(entrada_teclado)
+							W: begin
+								bcd_out <= quatro;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							X: begin
+								bcd_out <= cinco;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							Y: begin
+								bcd_out <= seis;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							Z: begin
+								bcd_out <= B;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							default: begin
+								bcd_out <= 0;
+								key_valid <= 0;
+								next_state <= INICIAL;
+							end
+						endcase
 					end
+					
 					Y: begin
-						if (entrada_teclado == W) begin
-							bcd_out <= sete;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == X) begin
-							bcd_out <= oito;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == Y) begin
-							bcd_out <= nove;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == Z) begin
-							bcd_out <= C;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else begin
-							bcd_out <= 0;
-							key_valid <= 0;
-							next_state <= INICIAL;
-						end
+						case(entrada_teclado)
+							W: begin
+								bcd_out <= sete;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							X: begin
+								bcd_out <= oito;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							Y: begin
+								bcd_out <= nove;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							Z: begin
+								bcd_out <= C;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							default: begin
+								bcd_out <= 0;
+								key_valid <= 0;
+								next_state <= INICIAL;
+							end
+						endcase
 					end
+
 					Z: begin
-						if (entrada_teclado == W) begin
-							bcd_out <= asterisco;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == X) begin
-							bcd_out <= zero;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == Y) begin
-							bcd_out <= hashtag;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else if (entrada_teclado == Z) begin
-							bcd_out <= D;
-							key_valid <= 1;
-							next_state <= INICIAL;
-						end
-						else begin
-							bcd_out <= 0;
-							key_valid <= 0;
-							next_state <= INICIAL;
-						end
+						case(entrada_teclado)
+							W: begin
+								bcd_out <= asterisco;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							X: begin
+								bcd_out <= zero;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							Y: begin
+								bcd_out <= hashtag;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							Z: begin
+								bcd_out <= D;
+								key_valid <= 1;
+								next_state <= INICIAL;
+							end
+							default: begin
+								bcd_out <= 0;
+								key_valid <= 0;
+								next_state <= INICIAL;
+							end
+						endcase
 					end
 					default: begin
 						bcd_out <= 0;
